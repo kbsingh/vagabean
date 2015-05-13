@@ -2,7 +2,7 @@
 
 cd ~/sync/
 vagrant init atomicapp/dev
-vagrant up
+vagrant up --provider $1
 UpdtPkgs=$(vagrant ssh -c "sudo yum -d0 list updates | wc -l")
 echo 'Updates backlog :' ${UpdtPkgs} 
 #if [ $UpdtPkgs -gt 0 ]; then

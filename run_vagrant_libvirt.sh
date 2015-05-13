@@ -36,7 +36,7 @@ if [ $? -eq 0 ]; then
   rm -rf ~/sync ; mkdir -p ~/sync
   cp answers.conf test_example_helloapache.sh ~/sync/
   chmod u+x ./vagrant_test.sh
-  scl enable vagrant1 ./vagrant_test.sh
+  scl enable vagrant1 ./vagrant_test.sh libvirt
   if [ $? -ne 0 ]; then
     echo 'Failed'
     exit 1
