@@ -7,13 +7,13 @@ atomic run aweiteka/helloapache:app
 if [ $? -ne 0 ]; then echo "atomic run failed" ; exit 1 ; fi
 
 #waiting for pod to come up
-podup=$(kubectl get pod | grep -E 'apache.*Running' ; echo $?)
+podup=$(kubectl get pod | grep -q 'Running' ; echo $?)
 timer=0
 echo 'Waiting for upto 4 minutes for the app to launch...'
 while [ $timer -lt 120 ] && [ $podup -ne 0 ]; do
   echo -n '+'
   sleep 2
-  podup=$(kubectl get pod | grep -E 'apache.*Running' ; echo $?)
+  podup=$(kubectl get pod | grep -q 'Running' ; echo $?)
   timer=$((timer+1))
 done
 echo ' '
