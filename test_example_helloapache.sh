@@ -1,9 +1,9 @@
 #!/bin/bash
 
-atomic install aweiteka/helloapache:app
+atomic install projectatomic/helloapache
 if [ $? -ne 0 ]; then echo "atomic install failed" ; exit 1 ; fi
 
-atomic run aweiteka/helloapache:app
+atomic run projectatomic/helloapache
 if [ $? -ne 0 ]; then echo "atomic run failed" ; exit 1 ; fi
 
 #waiting for pod to come up
